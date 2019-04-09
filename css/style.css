@@ -150,7 +150,7 @@ div#thumbnails-btm.col-lg-12{
 #thumbnails-btm_container,
 #zoomedArea {
     overflow: hidden;
-    margin-top: 10px;
+    margin-top: 100px;
     min-height: 0;
 
 }
