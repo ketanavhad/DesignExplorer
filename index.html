@@ -1638,12 +1638,12 @@
                 d3.select("#welcome").style("display", "none");
                 MP_getGoogleIDandLoad("URL");
             } else {
-                // load default data
-                //parse the csv data from the design_explorer_data folder
-                d3.csv("design_explorer_data/example/online/Vondeltuin - Run1/data.csv", function (data) {
-                    loadDataToDesignExplorer(data);
-                    loadSetting("design_explorer_data/DefaultData/settings.json");
-                    });
+                // // load default data
+                // //parse the csv data from the design_explorer_data folder
+                // d3.csv("design_explorer_data/example/online/Vondeltuin - Run1/data.csv", function (data) {
+                //     loadDataToDesignExplorer(data);
+                //     loadSetting("design_explorer_data/DefaultData/settings.json");
+                //     });
             }
             //function to close intro window div
             d3.selectAll(".popupWindowClose")
