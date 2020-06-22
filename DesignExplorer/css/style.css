@@ -149,14 +149,6 @@ div#thumbnails-btm.col-lg-12{
     height: calc(100% - 50px);
 }
 
-#thumbnails-btm_container,
-#zoomedArea {
-    overflow: hidden;
-    margin-top: 25px;
-    min-height: 0;
-
-}
-
 #legend {
     overflow-y: auto;
     overflow-x: hidden;
@@ -228,7 +220,7 @@ a#copyRightButton {
     margin-left: auto;
     margin-right: auto;
     max-height: 700px;
-    min-height: 530px;
+    min-height: 450px;
     min-width: 560px;
     padding: 2em;
 
@@ -358,6 +350,12 @@ g.cell text {
     display: none;
 }
 
+/* Fix overflow */
+
+#page-content-wrapper {
+    padding-bottom: 0;
+}
+
 /* Welcome tab */
 .intro-video {
     position: relative;
@@ -375,3 +373,14 @@ g.cell text {
     float: center;
   }
 
+/* Fixed zoomed in area */
+#thumbnails-btm_container,
+#zoomedArea {
+    overflow: hidden;
+    margin-top: 20px;
+    min-height: 0;
+}
+
+.zoomed.fullscreen {
+    margin-top: 0 !important;
+}
