@@ -150,7 +150,7 @@ div#thumbnails-btm.col-lg-12{
 #thumbnails-btm_container,
 #zoomedArea {
     overflow: hidden;
-    margin-top: 30px;
+    margin-top: 25px;
     min-height: 0;
 
 }
@@ -355,3 +355,9 @@ g.cell text {
 #pcFullScreen-toggle {
     display: none;
 }
+
+/* Hide rating stars */
+.star-rating-control {
+    display: none;
+}
+
