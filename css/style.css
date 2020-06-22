@@ -219,11 +219,6 @@ a#copyRightButton {
     background-color: rgba(0, 0, 0, 0.30);
 }
 
-#welcomeContainer .col-sm-4 {
-  width: 100%;
-  float: center;
-}
-
 .popupWindow div.col-centered{
     background-color: #ffffff;
     opacity: 1;
@@ -362,4 +357,21 @@ g.cell text {
 .star-rating-control {
     display: none;
 }
+
+/* Welcome tab */
+.intro-video {
+    position: relative;
+    top: -30px;
+    z-index: -1;
+}
+
+#welcomeContainer {
+    width: 0;
+    height: 0;
+}
+
+#welcomeContainer .col-sm-4 {
+    width: 100%;
+    float: center;
+  }
 
