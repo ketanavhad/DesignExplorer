@@ -992,6 +992,11 @@
             $("#radarChart").collapse("show");
 
             isAnyItemSelected = false;
+
+            // Exit Fullscreen
+            if(fullscreen) {
+                toggleFullscreen()
+            }
         }
 
         // hide/show parallel coordinates

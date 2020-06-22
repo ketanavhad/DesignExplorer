@@ -105,10 +105,10 @@ output {
 
 #zoomed img,
 #zoomedArea img {
+    /* width: auto;
+    height: inherit; */
     width: auto;
-    height: inherit;
-    /* width: 100%;
-    height: auto; */
+    height: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -140,13 +140,13 @@ div#thumbnails-btm.col-lg-12{
     margin-top: 20px;
     overflow: auto;
     /* Firefox */
-    height: -moz-calc(100% - 50px);
+    height: -moz-calc(100% - 40px);
     /* WebKit */
-    height: -webkit-calc(100% - 50px);
+    height: -webkit-calc(100% - 40px);
     /* Opera */
-    height: -o-calc(100% - 50px);
+    height: -o-calc(100% - 40px);
     /* Standard */
-    height: calc(100% - 50px);
+    height: calc(100% - 40px);
 }
 
 #legend {
@@ -319,21 +319,30 @@ g.cell text {
     display: none;
 }
 
+#legend-heading {
+    display: none;
+}
+
 #IterationData {
     z-index: 1000;
     left: 10px;
-    margin-bottom: 0;
+    margin-bottom: 10;
 }
 
 
 /* Make Slider wider */
 #sidebar-wrapper {
-    width: 300px;
+    max-height: calc(100vh - 480px);
+    top: 120px;
+    width: 290px;
     z-index: 999;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #inputSliders {
-    width: 120%;
+    left: 3%;
+    width: 115%;
 }
 
 .btn-group.col-xs-12 {
@@ -381,6 +390,32 @@ g.cell text {
     min-height: 0;
 }
 
+#zoomedArea {
+    overflow-y: auto;
+    margin-top: 20px;
+    min-height: 0;
+    min-width: 0px;
+    padding: 0;
+}
+
 .zoomed.fullscreen {
     margin-top: 0 !important;
+}
+
+/* Custom Scrollbars */
+div::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  
+div::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+div::-webkit-scrollbar-thumb {
+    background: #BEC6D5;
+}
+
+div::-webkit-scrollbar-thumb:hover {
+    background: #444466;
 }
