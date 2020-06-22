@@ -651,44 +651,6 @@
 
     </script>
 
-        <!-- welcome div
-    <script type="text/javascript">
-        sampleFiles = {
-            1: "design_explorer_data/LittleRedBox.csv",
-            2: "design_explorer_data/data_vondel.csv",
-            3: "design_explorer_data/AIA building.csv"
-        };
-
-        sampleSettingFiles = {
-            1: "design_explorer_data/RedBox/settings.json",
-            2: "design_explorer_data/DefaultData/settings.json",
-            3: "design_explorer_data/AIAbuilding/settings.json"
-        };
-
-        d3.selectAll(".sampleImage")
-            .on("click", function () {
-                var selSample = d3.select(this);
-                var id = selSample[0][0].id.replace("sample", "");
-
-                var filePath = sampleFiles[id];
-                var settingFilePath =sampleSettingFiles[id];
-
-                // remove the current selection
-                unloadPageContent();
-
-                d3.select("div#welcome").style("display", "none");
-
-                // load the new file
-                d3.csv(filePath, function (data) {
-                    loadDataToDesignExplorer(data);
-                    loadSetting(settingFilePath);
-                    });
-
-            });
-
-    </script>
-
-    -->
 
     <!-- right side chart -->
     <script type="text/javascript">
@@ -2024,12 +1986,18 @@
                 d3.select("#welcome").style("display", "none");
                 MP_getGoogleIDandLoad("URL");
             } else {
-                // load default data
-                //parse the csv data from the design_explorer_data folder
-                d3.csv("design_explorer_data/example/online/data.csv", function (data) {
-                    loadDataToDesignExplorer(data);
-                    loadSetting("design_explorer_data/DefaultData/settings.json");
-                    });
+
+                // load default example data from web
+                // parse the csv data from the design_explorer_data folder
+
+                // d3.csv("design_explorer_data/example/online/data.csv", function (data) {
+                //     loadDataToDesignExplorer(data);
+                //     loadSetting("design_explorer_data/example/online/settings.json");
+                //     });
+
+                // or load Vondeltuin from local URL
+                loadFromUrl("./design_explorer_data/DefaultData");
+                loadSetting("./design_explorer_data/DefaultData/settings.json");
 
             }
 
