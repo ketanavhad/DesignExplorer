@@ -150,7 +150,7 @@ div#thumbnails-btm.col-lg-12{
 #thumbnails-btm_container,
 #zoomedArea {
     overflow: hidden;
-    margin-top: 100px;
+    margin-top: 30px;
     min-height: 0;
 
 }
@@ -316,4 +316,42 @@ g.cell text {
 
 #vis .imgSwitch{
     float: right;
+}
+
+
+/* Simplification edits */
+
+/* Hide unusedcharts */
+#ScChartWrapper {
+    display: none;
+}
+
+#legend {
+    display: none;
+}
+
+#IterationData {
+    z-index: 1000;
+    left: 10px;
+    margin-bottom: 0;
+}
+
+
+/* Make Slider wider */
+#sidebar-wrapper {
+    width: 300px;
+    z-index: 999;
+}
+
+#inputSliders {
+    width: 120%;
+}
+
+.btn-group.col-xs-12 {
+    z-index: 1000;
+}
+
+/* Hide Parallel chart expander button */
+#pcFullScreen-toggle {
+    display: none;
 }
