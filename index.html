@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
 //The MIT License (MIT)
 //
@@ -90,7 +90,7 @@
     <script type="text/javascript" src="va3c_source_files/js/libs/stats.js"></script>
     <script type="text/javascript" src="va3c_source_files/js/libs/jquery-ui.js"></script>
     <script type="text/javascript" src="va3c_source_files/js/libs/SPECTACLES.js"></script>
-
+    
 
 
     <!-- Pace for loading bar-->
@@ -102,7 +102,7 @@
     <link href="./rating_source_files/jquery.rating.css" type="text/css" rel="stylesheet" />
 
 
-    <!-- <script src="./js/divgrid.js"></script> -->
+    <script src="./js/divgrid.js"></script>
     <!-- Design Explorer Scripts -->
     <script src="./js/designExplorer.js" type="text/javascript" language="javascript"></script>
     <!-- for clean parameters before new data comes in -->
@@ -170,7 +170,7 @@
         if(file === 0 || file === undefined){
             return "http://OMRTech.github.io/img/Logo_OMRT_SCREENSHOT_JPG.JPG";
         }
-
+ 
 
 
         if (file.startsWith("http")) {
@@ -187,19 +187,19 @@
                 link = _folderInfo.url + file;
 
             } else {                                       //folder is one GoogleDrive or OneDrive
-
+                
                 if(type =="img"){
                     link = _googleReturnObj.imgFiles[file];
-
+                    
                 }else if(type =="threeD"){
                     link = _googleReturnObj.jsonFiles[file];
-
+                    
                 }else if(type =="setting"){
                     link = _googleReturnObj.settingFiles[file];
-
+                    
                 }else if(type =="csv"){
                     link = _googleReturnObj.csvFiles[file];
-
+                    
                 }
 
             }
@@ -244,7 +244,9 @@
                 studyEncodedUrl = document.location.origin +"/DesignExplorer/?ID="+_folderInfo.DE_PW;
                 d3.select("#showShortUrl").html("https://goo.gl/"+ _folderInfo.DE_PW);
 
-            
+            }else if(UrlId.startsWith("BL_")){
+                studyEncodedUrl = document.location.origin +"/DesignExplorer/?ID="+_folderInfo.DE_PW;
+                d3.select("#showShortUrl").html("https://bit.ly/"+ _folderInfo.DE_PW.replace("BL_",""));
             }else{
                 studyEncodedUrl = studyLongUrl;
             }
@@ -333,11 +335,9 @@
                                 <div class="btn-group col-xs-12" >
                                     <button type="button" class="btn btn-default btn-xs" id="menu-toggle" title="Show sliders">
                                         <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
-                                        Sliders
                                     </button>
                                     <button type="button" class="btn btn-default btn-xs" id="pcgraph" data-toggle="collapse">
                                         <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-                                        Parameters
                                     </button>
                                     <button id="reset" class="btn btn-default btn-xs">Reset Selection</button>
                                     <button id="remove" class="btn btn-default btn-xs">Exclude Selection</button>
@@ -369,27 +369,40 @@
                             </div>
 
 
-
                         </div>
                         <!-- end of left side charts-->
 
-                        <!-- start of right side charts AANPASSEN! -->
+                        <!-- start of right side charts-->
                         <div id="ScChartWrapper" class="col-lg-3">
+
+                            <div class="row-fluid">
+                                <div id="rightTopButtonGroup" class="btn-group col-xs-12">
+                                    <button type="button" class="btn btn-default btn-xs" id="scatter-fullscreen-toggle" title="Full Screen">
+                                        <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+                                    </button>
+                                    <a id="copyRightButton" href="http://core.thorntontomasetti.com/" class="btn btn-default btn-xs" target="_blank" style="width: calc(100% - 46px);">
+                                        &copy; 2019 Thornton Tomasetti
+                                    </a>
+                                    <!--<button type="button" class="btn btn-default btn-xs" id="rcgraph" data-toggle="collapse" data-target="#radarChart">
+                                        <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                                    </button>-->
+                                    <button type="button" class="btn btn-default btn-xs" id="scatter-menu-toggle" title="Show Dimensions">
+                                        <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
 
                             <div class="row chartSide">
 
-                              <div id="radarChart" class="col-lg-12 collaps in center-block" style="font-size:14px; font-weight:bold">
-                                  <!-- // <h5>Radar Chart Place Holder</h5> -->
-                              </div>
+                                <div id="radarChart" class="col-lg-12 collaps in center-block" style="font-size:14px; font-weight:bold">
+                                    <!-- // <h5>Radar Chart Place Holder</h5> -->
+                                </div>
 
                             </div>
 
                         </div>
-
                     </div>
                 </div>
-
-
                 <div class="row-fluid col-lg-12">
 
 
@@ -452,6 +465,8 @@
                         <div class="col-lg-12" id="thumbnails-btm"></div>
                     </div>
 
+                     <!--Here starts the thumbnails-btm_tbContainer-->
+                     <div id="tbContainer" class="col-lg-12"></div>
 
                 </div>
             </div>
@@ -508,6 +523,7 @@
                     </div>
 
                 </div>
+
             </div>
 
             <!--  show static link-->
@@ -623,7 +639,7 @@
 
     </script>
 
-    <!-- welcome div
+        <!-- welcome div
     <script type="text/javascript">
         sampleFiles = {
             1: "design_explorer_data/LittleRedBox.csv",
@@ -1010,7 +1026,7 @@
 
             var height = d3.select("#graph").style("height").replace("px", "");
 
-            if (height > 0) {
+            if (height > 0) { 
                 // collapse
                 d3.select("#graph")
                     .attr("class", "parcoords collapse 2s")
@@ -1148,7 +1164,9 @@
             if (imageLinkKeys.length ==0) {
                 hasImgLink = false;
                 d3.select("#thumbnails-btm_container").remove();
+
                 drawTable(cleanedData);
+                
             }else{
                 hasImgLink = true;
 
@@ -1164,6 +1182,20 @@
             }
 
         }
+
+        function drawTable(data){
+            var grid = d3.divgrid();
+                d3.select("#tbContainer")
+                .datum(data.slice(0,20))
+                .call(grid)
+                .selectAll(".row")
+                .on({
+                    "mouseover": function(d) { graph.highlight([d]) },
+                    "mouseout": function(d) {graph.unhighlight()}
+                });
+        }
+
+
         function getCaseId(inputParams) {
             // create the id based on inputs
             var params = [];
@@ -1276,11 +1308,15 @@
             if (isLeftChartFullScreenToggled) {
                 newGraphHeight = (windowHeight - 85) * 0.5-50;
                 newGraphWidth = windowWidth - 30;
+
             }
+
             if(windowWidth<1200){
                 newGraphWidth = windowWidth-30;
             }
+
             resizePcChart(newGraphWidth,newGraphHeight);
+
             var zoomedAreaHeight = d3.select("#zoomedArea").style("height").replace("px", "");
             if(zoomedAreaHeight >1){
                 d3.selectAll("#thumbnails-btm_container, #zoomedArea")
@@ -1290,8 +1326,12 @@
                     .style("height", zoomedHeight  + "px");
             }
             //console.log(graphHeight+"x"+zoomedHeight);
+
         };
+
+
         function drawParallelCoordinates() {
+
             // remove Rating for on page load
             var iniDimensions = d3.keys(cleanedKeys4pc).filter(function (d) {
                 return (d != "Rating") && (d != "Description");
@@ -1299,13 +1339,17 @@
                 acc[cur] = {};
                 return acc;
             }, {});
+
+
             // set the height for graph div - this is critical otherwise
             // parallel coordinates graph will be drawn by height of 0px
             d3.select("#graph").style("height", graphHeight + "px");
+
             // draw parallel coordiantes chart
             // click event should highlight the image in thumbnails and show it in zoomed
             // brush should filter thumbnails
             // get parallel coordinates
+
             graph = d3.parcoords()('#graph')
                 .data(cleanedData)
                 .margin({
@@ -1322,8 +1366,11 @@
                 .brushMode("1D-axes") // enable brushing
                 .interactive()
                 .reorderable();
+
             updateLabels();
+
         }
+
         // update pc chart labels and axis color based on input and outputs parameters
         function updateLabels() {
             // modify labels
@@ -1332,28 +1379,37 @@
                 inputLabels = d3.keys(inputData[0]),
                 outputLabels = d3.keys(outputData[0]),
                 colorset = []; //color set for lables
+
             d3.selectAll("text.label")
                 .style("fill", function (d) {
                     // change colors for inputs vs outputs
                     if (inputLabels.indexOf(d) != -1) {
                         colorset.push(inputLabelColor);
                         return inputLabelColor; // it is an input
+
                     } else if (outputLabels.indexOf(d) != -1) {
                         colorset.push(outputLabelColor);
                         return outputLabelColor; //it's an output
+
                     } else {
                         // undefined
                         colorset.push("black");
                         return "black";
                     }
                 });
+
+
             //modify axes
             d3.selectAll("path.domain")
                 .style("stroke", function (d, i) {
                     return colorset[i];
                 });
+
+
             setupPcLabelEvent();
+
         }
+
         // click label to activate coloring
         function setupPcLabelEvent() {
             d3.selectAll(".dimension")
@@ -1362,6 +1418,8 @@
                     update_colors(d);
                 });
         }
+
+
         function valueToNumber(value, dim) {
             if (graph.dimensions()[dim] !== undefined) {
                 return graph.dimensions()[dim].yscale(value);
@@ -1661,7 +1719,7 @@
 
     <!-- set up events between charts and graphs -->
     <script type="text/javascript">
-
+            
         // change the chart size;
         function resizePcChart(newWidth, newHeight) {
 
@@ -1688,8 +1746,7 @@
                 //rc.updateData(graph.brushed());   //-----TODO:here needs a switch for different charts-------
                 updateScatterChart();
                 updateImageGrid(d, false);
-                // commented out
-                // drawTable(d);
+                drawTable(d);
             });
 
             graph.on("brushend", function (d) {
@@ -1762,8 +1819,7 @@
                 updateLayoutOnDeselect();
                 updateImageGrid(newData, false);
                 updateSlidersTickValues(newData);
-                // commented out
-                // drawTable(newData);
+                drawTable(newData);
             }
 
             //events for legend click
@@ -1814,9 +1870,13 @@
                 }
             });
 
+           
+
             d3.select("#pcFullScreen-toggle")
                 .on("click", function () {
+
                     isLeftChartFullScreenToggled = !isLeftChartFullScreenToggled;
+
                     d3.select(".col-lg-3") //hide right side
                         .transition().delay(200)
                         .style("display", function () {
@@ -1826,6 +1886,8 @@
                                 return "block";
                             }
                         });
+
+                    
 
                     d3.select("#PcChartWrapper")
                     .classed("col-lg-9", !isLeftChartFullScreenToggled)
@@ -2039,7 +2101,6 @@
         }; // end of window.onload
 
     $(document).ready(function(){
-
         $('[data-toggle="tooltip"]').tooltip();
     });
 
@@ -2361,6 +2422,8 @@
                 loadNew3DModel();
 
             }
+
+
             var onOff = {
                 "2D": ["zoomed", "viewer3d"],
                 "3D": ["viewer3d", "zoomed"]
@@ -2665,7 +2728,7 @@
             var itemTickNumberSetting = panelBodyContent.append("li")
                                                     .attr("class", "list-group-item form-inline")
                                                     .text("Target Mark: ");
-
+            
             itemTickNumberSetting.append("input")
                         .attr("class", "form-control input-sm")
                         .attr("style","margin-left: 1.1em;")
@@ -2708,7 +2771,7 @@
                                     value:"ToBeRemoved",
                                     prefix:""
                                     };
-
+                            
                         });
 
 
@@ -2731,7 +2794,7 @@
             var isThereNewStudyInfo = Object.keys(userSetting.studyInfo).length >0;
             var isThereNewDimScales = Object.keys(userSetting.dimScales).length >0;
             var isThereNewDimTicks = Object.keys(userSetting.dimTicks).length >0;
-
+            
 
             if (isThereNewStudyInfo) {
                     setStudyInfo(userSetting.studyInfo);
@@ -2751,12 +2814,12 @@
 
                 //chart.reRender();
                 update_colors(pcIsColoredBy);
-
+                
             }
-
+            
             //set target mark must be after graph.updateAxes();
             setAllTargetMarks(chart, userSetting.dimMark);
-
+            
         }
 
         function setStudyInfo(studyInfoData){
@@ -2767,14 +2830,14 @@
             //update the global _userSetting
             _userSetting.studyInfo.name = studyInfoData.name;
             _userSetting.studyInfo.date = studyInfoData.date;
-
+            
         }
 
         function setAllScales(chart, scales){
             d3.keys(scales).forEach( function (d) {
                     //update scales
                     chart.dimensions()[d].yscale.domain(scales[d]);
-                    chart.yscaleDomains()[d] = scales[d];
+                    chart.yscaleDomains()[d] = scales[d]; 
 
                     //update the global _userSetting
                     _userSetting.dimScales[d] = scales[d];
@@ -2794,13 +2857,13 @@
         }
 
         function setAllTargetMarks(chart, targetMark){
-
+            
             d3.keys(targetMark).forEach( function (d) {
                     //update the global _userSetting
                     _userSetting.dimMark[d] = targetMark[d];
-
+                    
             })
-
+            
             //set marks based on global _userSetting
             d3.keys(_userSetting.dimMark).forEach( function (d) {
                     setMarkOnDim(chart, d, _userSetting.dimMark[d]);
@@ -2830,7 +2893,7 @@
 
                 domain = chart.dimensions()[dim].yscale.domain();
                 yHeight = d3.scale.linear().domain(domain).range([canvasHeight,0])(markValue);
-
+                
                 //add mark
                 var dim = d3.select("#"+dimID).select(".axis").append("g").attr("class", "tick mark").attr("transform", "translate(0,"+yHeight+")");
                 dim.append("line").attr("x2", "-8").attr("x1", "8");
@@ -2882,7 +2945,7 @@
             var exportJson = globalUserSetting;
 
             var JsonContent = "data:attachment/json;charset=utf-8,";
-
+            
 
             JsonContent += encodeURI(JSON.stringify(exportJson));
 
@@ -2897,7 +2960,7 @@
         }
 
         function loadSetting(settingFilePath) {
-
+            
             var jsonFileLink = "";
 
             if(settingFilePath!==undefined){
@@ -2923,7 +2986,11 @@
                 setSettings(graph,_userSetting);
             })
 
+            
         }
+
+
+
     </script>
 
 
