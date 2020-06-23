@@ -384,7 +384,8 @@ g.cell text {
     background-color: #ffffff66;
     backdrop-filter: blur(15px);
     border-radius: 10px;
-    border: solid 1px white
+    border: solid 1px white;
+    box-shadow: 0 5px 10px #00000044;
 }
 
 #welcomeContainer .col-sm-4 {
