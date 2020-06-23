@@ -316,32 +316,42 @@ g.cell text {
 }
 
 
-/* Move Attributes to corner */
+/* Attributes widget */
 #IterationData {
     z-index: 1000;
     left: 10px;
     margin-bottom: 10;
+    backdrop-filter: blur(10px);
+    margin: 25px 6px;
+    padding: unset;
 }
 
 
 /* Sliders */
 #sidebar-wrapper {
-    z-index: 1111 !important;
-    max-height: calc(100vh - 480px);
+    z-index: 99999 !important;
+    max-height: calc(100vh - 420px);
     top: 120px;
-    width: 290px;
+    width: 300px;
     z-index: 999;
     overflow-y: auto;
     overflow-x: hidden;
+    background: transparent;
+}
+
+.sidebar-nav {
+    width: 300px !important;
 }
 
 #inputSliders {
     left: 3%;
-    width: 115%;
+    width: 100%;
     position: sticky;
     background: #ffffffee;
     border: solid 5px #ffffff00;
     border-radius: 4px;
+    backdrop-filter: blur(10px);
+    padding-bottom: 15px;
 }
 
 .inputSlider {
@@ -366,26 +376,26 @@ g.cell text {
     z-index: 9999;
 }
 
-/* Fix bottom row padding */
-.row-fluid.col-lg-12 {
-    padding-left: 35px;
+#wrapper {
+    padding-left: 300px;
 }
 
 
-/* Welcome tab */
-.intro-video {
-    position: relative;
-    z-index: 10;
-}
-
-#welcomeContainer {
-    width: 0;
-    height: 0;
-    background-color: #ffffff66;
+/* Popup tabs */
+#welcomeContainer,
+#loadDataContainer,
+.modal-content {
+    background-color: #ffffff99;
     backdrop-filter: blur(15px);
     border-radius: 10px;
     border: solid 1px white;
     box-shadow: 0 5px 10px #00000044;
+}
+
+#welcomeContainer,
+#loadDataContainer {
+    height: 0;
+    width: 0;
 }
 
 #welcomeContainer .col-sm-4 {
@@ -396,6 +406,12 @@ g.cell text {
 #welcome {
     background-color: transparent;
 }
+
+.modal-backdrop {
+    visibility: hidden;
+}
+
+
 
 /* Fixed zoomed in area */
 #thumbnails-btm_container,
