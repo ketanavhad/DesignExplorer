@@ -324,6 +324,7 @@ g.cell text {
     backdrop-filter: blur(10px);
     margin: 25px 6px;
     padding: unset;
+    max-width: 290px;
 }
 
 
@@ -344,9 +345,8 @@ g.cell text {
 }
 
 #inputSliders {
-    left: 3%;
+    left: 2%;
     width: 100%;
-    position: sticky;
     background: #ffffffee;
     border: solid 5px #ffffff00;
     border-radius: 4px;
