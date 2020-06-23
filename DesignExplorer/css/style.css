@@ -330,11 +330,10 @@ g.cell text {
 
 /* Sliders */
 #sidebar-wrapper {
-    z-index: 99999 !important;
+    z-index: 999 !important;
     max-height: calc(100vh - 420px);
     top: 120px;
     width: 300px;
-    z-index: 999;
     overflow-y: auto;
     overflow-x: hidden;
     background: transparent;
@@ -359,11 +358,6 @@ g.cell text {
     padding-top: 10px;
 }
 
-.btn-group.col-xs-12 {
-    z-index: 1000;
-}
-
-
 /* Hide Parallel chart expander button */
 #pcFullScreen-toggle {
     display: none;
@@ -373,7 +367,7 @@ g.cell text {
 /* Fix overflow */
 #page-content-wrapper {
     padding-bottom: 0;
-    z-index: 9999;
+    z-index: 990;
 }
 
 #wrapper {
