@@ -378,6 +378,7 @@ g.cell text {
 /* Popup tabs */
 #welcomeContainer,
 #loadDataContainer,
+#modal-content,
 .modal.fade div {
     background-color: #ffffff99;
     backdrop-filter: blur(12px);
