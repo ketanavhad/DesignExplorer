@@ -3003,15 +3003,15 @@
 
             
         }
-
-        setupUi();
-        function setupUi() {
+        
+        openFirstVariant();
+        function openFirstVariant() {
             // Open first solution thumbnail if its loaded
             if (document.querySelector("#thumbnails-btm > div:nth-child(1) > img")) {
                 document.querySelector("#thumbnails-btm > div:nth-child(1) > img").__onclick()
-            // if not wait a bit
+            // if not wait a bit and try again
             } else {
-                setTimeout(setupUi, 100)
+                setTimeout(openFirstVariant, 100)
             }
         }
 
