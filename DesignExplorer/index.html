@@ -853,7 +853,7 @@
                 .attr("src", makeUrl(selectedImage.datum()[imgKey],"img"))
                 .attr("title", getTitle);
 
-            addImgSwitch(selectedImage);
+            addImgSwitch(selectedImage.datum());
             updateIterationData(selectedImage.data());
 
 
@@ -945,7 +945,7 @@
                     }).attr("selected", "true");
 
                     d3.select("#viewer2d img")
-                        .attr("src", makeUrl(selectedData.datum()[imgKey],"img"));
+                        .attr("src", makeUrl(selectedData[imgKey],"img"));
                 });
             }
 
@@ -2294,6 +2294,7 @@
             if (!imgKey){
                     imgKey = imageLinkKeys[0]
                 }
+
             // This function update the value for a single slider
             // All the sliders call this function on update
             if (!isNaN(newValue) || typeof (newValue) == "string") {
@@ -2310,7 +2311,6 @@
             if (ids.indexOf(id) != -1) {
 
                 selectedData = allDataCollector[id].cleanedParams;
-                //console.log(selectedData);
 
                 // update chart
                 graph.highlight([selectedData]);
@@ -2321,12 +2321,12 @@
 
                 //updat iterationData
                 updateIterationData([selectedData]);
-
-
+                
                 // push the image to zoomed area
                 d3.select("#viewer2d")
                     .select("img")
                     .attr("src", makeUrl(selectedData[imgKey],"img"));
+                addImgSwitch(selectedData);
 
                 if (currentView == "3D") loadNew3DModel();
 
