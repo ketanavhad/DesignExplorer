@@ -800,9 +800,9 @@
 
             if (isRightChartFullScreenToggled) {
                 //var newDim =  windowHeight - 200;
-                d3.select("#thumbnails-btm_container").style("height", cleanHeight + "px");
+                d3.select("#thumbnails-btm_container").style("height", cleanHeight-10 + "px");
             } else {
-                d3.select("#thumbnails-btm_container").style("height", zoomedHeight+"px");
+                d3.select("#thumbnails-btm_container").style("height", zoomedHeight-20 +"px");
             }
 
 
