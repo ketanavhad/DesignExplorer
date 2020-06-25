@@ -380,15 +380,12 @@ g.cell text {
 #loadDataContainer,
 #modal-content {
     background-color: #ffffff99;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(15px);
     border-radius: 10px;
     border: solid 1px white;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
-.modal.fade div {
-    backdrop-filter: blur(12px);  
-}
 
 #welcome, 
 #showStillLink,
