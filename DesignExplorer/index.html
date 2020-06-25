@@ -800,9 +800,9 @@
 
             if (isRightChartFullScreenToggled) {
                 //var newDim =  windowHeight - 200;
-                d3.select("#thumbnails-btm_container").style("height", cleanHeight-20 + "px");
+                d3.select("#thumbnails-btm_container").style("height", cleanHeight-10 + "px");
             } else {
-                d3.select("#thumbnails-btm_container").style("height", zoomedHeight-10 +"px");
+                d3.select("#thumbnails-btm_container").style("height", zoomedHeight +"px");
             }
 
 
@@ -1047,7 +1047,7 @@
                             .style("height", cleanHeight + "px");
                 }
 
-                d3.select("#thumbnails-btm_container").style("height", cleanHeight-20 + "px");
+                d3.select("#thumbnails-btm_container").style("height", cleanHeight-10 + "px");
 
             } else {
                 // collapse in
@@ -1073,7 +1073,7 @@
                     d3.selectAll("#zoomedArea")
                             .style("height", zoomedHeight + "px");
                 }
-                d3.select("#thumbnails-btm_container").style("height", zoomedHeight-10 + "px");
+                d3.select("#thumbnails-btm_container").style("height", zoomedHeight + "px");
 
             }
         });
@@ -1904,9 +1904,9 @@
 
                         
                         if (graph.highlighted().length>0) {
-                            d3.selectAll("#thumbnails-btm_container, #zoomedArea").style("height", (cleanHeight - newpcHeight - 44) + "px");
+                            d3.selectAll("#thumbnails-btm_container, #zoomedArea").style("height", (cleanHeight - newpcHeight - 34) + "px");
                         } else {
-                            d3.select("#thumbnails-btm_container").style("height", (cleanHeight - newpcHeight - 44) + "px");
+                            d3.select("#thumbnails-btm_container").style("height", (cleanHeight - newpcHeight - 34) + "px");
                         }
 
                     } else {
@@ -1926,7 +1926,7 @@
                         if (graph.highlighted().length > 0) {
                                 d3.selectAll("#thumbnails-btm_container, #zoomedArea").style("height", zoomedHeight + "px");
                             } else {
-                                d3.select("#thumbnails-btm_container").style("height", zoomedHeight-10 + "px");
+                                d3.select("#thumbnails-btm_container").style("height", zoomedHeight + "px");
                             }
 
                     }
