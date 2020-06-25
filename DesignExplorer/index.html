@@ -750,6 +750,7 @@
     <script>
         var isAnyItemSelected = false;
         var isToggled = false;
+        var isGraphToggled = true;
         var isScatterToggled = true;
         var isLeftChartFullScreenToggled = false;
         var isRightChartFullScreenToggled = false;
@@ -761,6 +762,7 @@
 
             //$("#wrapper").toggleClass("toggled");
             isToggled = !isToggled;
+            reDrawPcChart();
             d3.select("#wrapper")
                 .classed("toggled", isToggled)
                 .transition().duration(300); //length of toggle animation
@@ -1026,8 +1028,9 @@
             if (cleanedData.length === 0) return; // don't let the user change the size before loading the file
 
             var height = d3.select("#graph").style("height").replace("px", "");
-
-            if (height > 0) { 
+            isGraphToggled = !isGraphToggled
+            
+            if (!isGraphToggled) { 
                 // collapse
                 d3.select("#graph")
                     .attr("class", "parcoords collapse 2s")
@@ -1299,35 +1302,39 @@
         function reDrawPcChart () {
             calWidthAndHeight();
 
-            var newGraphWidth = windowWidth*0.75-30; // (col-lg-9 x0.73) - (boside padding 15*2)
+            var newGraphWidth = (windowWidth-350); // (col-lg-9 x0.73) - (boside padding 15*2)
             // var newGraphWidth = windowWidth-scatterWidth-90;
             var newGraphHeight = graphHeight;
 
-            if (newGraphHeight< scatterHeight) {
-                newGraphHeight = newGraphHeight;
+            if (isToggled) {
+                newGraphWidth = (windowWidth-50)
             }
 
-            if (isLeftChartFullScreenToggled) {
-                newGraphHeight = (windowHeight - 85) * 0.5-50;
-                newGraphWidth = windowWidth - 30;
+            // if (newGraphHeight< scatterHeight) {
+            //     newGraphHeight = newGraphHeight;
+            // }
 
-            }
+            // if (isLeftChartFullScreenToggled) {
+            //     newGraphHeight = (windowHeight - 85) * 0.5-50;
+            //     newGraphWidth = windowWidth - 30;
 
-            if(windowWidth<1200){
-                newGraphWidth = windowWidth-30;
-            }
+            // }
 
             resizePcChart(newGraphWidth,newGraphHeight);
 
             var zoomedAreaHeight = d3.select("#zoomedArea").style("height").replace("px", "");
-            if(zoomedAreaHeight >1){
+
+            if(!isGraphToggled) {
+                zoomedAreaHeight = zoomedHeight + graphHeight
+            }
+
+            if(zoomedAreaHeight > 1){
                 d3.selectAll("#thumbnails-btm_container, #zoomedArea")
-                    .style("height", zoomedHeight + "px");
+                    .style("height", zoomedAreaHeight + "px");
             }else{
                 d3.select("#thumbnails-btm_container")
-                    .style("height", zoomedHeight  + "px");
+                    .style("height", zoomedAreaHeight  + "px");
             }
-            //console.log(graphHeight+"x"+zoomedHeight);
 
         };
 
@@ -1899,7 +1906,8 @@
                         var newpcHeight = (windowHeight - 109) * 0.5-50;
                         var newpcWidth = windowWidth - 30;
 
-                        resizePcChart(newpcWidth,newpcHeight);
+
+                        resizePcChart(newpcWidth, newpcHeight);
 
                         
                         if (graph.highlighted().length>0) {
@@ -1920,7 +1928,7 @@
                         }
 
                         //back to normal size mode
-                        resizePcChart(oldpcWidth,oldpcHeight);
+                        resizePcChart(oldpcWidth, oldpcHeight);
 
                         if (graph.highlighted().length > 0) {
                                 d3.selectAll("#thumbnails-btm_container, #zoomedArea").style("height", zoomedHeight + "px");
