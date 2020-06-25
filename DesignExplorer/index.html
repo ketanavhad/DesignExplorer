@@ -822,6 +822,10 @@
 
         // update layout on select
         function updateLayoutOnSelect() {
+            
+            if (!imgKey){
+                    imgKey = imageLinkKeys[0]
+                }
 
             var selectedImage = d3.select(this);
 
@@ -895,9 +899,12 @@
 
         }
 
-        imgKey = 'img_1'
+        imgKey = null
         function addImgSwitch(selectedData){
 
+            if (!imgKey){
+                    imgKey = imageLinkKeys[0]
+                }
 
             if(imageLinkKeys.length <=1){
                 d3.select(".imgSwitch").classed("hidden", true)
@@ -2284,6 +2291,9 @@
 
 
         function updateSliderValue(changedSliderName, newValue) {
+            if (!imgKey){
+                    imgKey = imageLinkKeys[0]
+                }
             // This function update the value for a single slider
             // All the sliders call this function on update
             if (!isNaN(newValue) || typeof (newValue) == "string") {
