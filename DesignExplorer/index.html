@@ -1635,7 +1635,7 @@
             d3.keys(data).forEach(
                 function (key) {
                     if (!String(key).startsWith("img") && !String(key).startsWith("threeD") && !String(key).startsWith(
-                            "scid")) {
+                            "_") && !String(key).startsWith("scid")) {
                         var info = '<strong>' + key + '</strong>' + " : " + data[key];
                         title.push(info);
                     }

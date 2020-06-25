@@ -437,6 +437,10 @@ g.cell text {
     min-width: 500px;
 }
 
+#vis {
+    padding-right: 5px;
+}
+
 /* Viewer Area controls */
 #vis .imgSwitch select {
     width: 100%;
