@@ -800,7 +800,7 @@
 
             if (isRightChartFullScreenToggled) {
                 //var newDim =  windowHeight - 200;
-                d3.select("#thumbnails-btm_container").style("height", cleanHeight-10 + "px");
+                d3.select("#thumbnails-btm_container").style("height", cleanHeight-20 + "px");
             } else {
                 d3.select("#thumbnails-btm_container").style("height", zoomedHeight +"px");
             }
@@ -1044,10 +1044,10 @@
 
                 if (graph.highlight().length !== 0) {
                     d3.selectAll("#zoomedArea")
-                            .style("height", cleanHeight + "px");
+                            .style("height", cleanHeight-20 + "px");
                 }
 
-                d3.select("#thumbnails-btm_container").style("height", cleanHeight-10 + "px");
+                d3.select("#thumbnails-btm_container").style("height", cleanHeight-20 + "px");
 
             } else {
                 // collapse in
@@ -1326,7 +1326,7 @@
                     .style("height", zoomedHeight + "px");
             }else{
                 d3.select("#thumbnails-btm_container")
-                    .style("height", zoomedHeight-10  + "px");
+                    .style("height", zoomedHeight  + "px");
             }
             //console.log(graphHeight+"x"+zoomedHeight);
 
@@ -1680,7 +1680,7 @@
 
             if (resizeImageDiv) {
                 d3.select("#thumbnails-btm_container")
-                    .style("height", zoomedHeight-10 + "px");
+                    .style("height", zoomedHeight + "px");
             }
 
             // attach images ---------------------------------------------------------------------------------------------------
@@ -1904,9 +1904,9 @@
 
                         
                         if (graph.highlighted().length>0) {
-                            d3.selectAll("#thumbnails-btm_container, #zoomedArea").style("height", (cleanHeight - newpcHeight - 34) + "px");
+                            d3.selectAll("#thumbnails-btm_container, #zoomedArea").style("height", (cleanHeight - newpcHeight - 44) + "px");
                         } else {
-                            d3.select("#thumbnails-btm_container").style("height", (cleanHeight - newpcHeight - 34) + "px");
+                            d3.select("#thumbnails-btm_container").style("height", (cleanHeight - newpcHeight - 44) + "px");
                         }
 
                     } else {
@@ -2013,6 +2013,7 @@
             if (window.location.href.toUpperCase().search("GFOLDER") > 0 || window.location.href.toUpperCase().search("ID=") > 0) {
                 // this is old user with google drive files.
                 // d3.select("#welcome").style("display", "none");
+                d3.select("#showLoadData").style("visibility", "hidden")
                 MP_getGoogleIDandLoad("URL");
             } else {
 
@@ -3004,7 +3005,7 @@
             
         }
         
-        openFirstVariant();
+        // openFirstVariant();
         function openFirstVariant() {
             // Open first solution thumbnail if its loaded
             if (document.querySelector("#thumbnails-btm > div:nth-child(1) > img")) {
