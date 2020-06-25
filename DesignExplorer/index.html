@@ -847,7 +847,7 @@
             d3.select("#viewer2d")
                 .select("img")
                 .data(selectedImage.data())
-                .attr("src", makeUrl(selectedImage.datum()[imageLinkKeys[0]],"img"))
+                .attr("src", makeUrl(selectedImage.datum()[imgKey],"img"))
                 .attr("title", getTitle);
 
             addImgSwitch(selectedImage);
@@ -895,6 +895,7 @@
 
         }
 
+        imgKey = 'img_1'
         function addImgSwitch(selectedData){
 
 
@@ -926,10 +927,12 @@
                 // add change event to show images
                 select.on("change", function (d) {
                     imgKey = d3.select(this).property("value");
+                    console.log(imgKey)
 
                     // update the value in other dropdown menu
                     d3.selectAll("select option").filter(function (d) {
                         return d == imgKey;
+                        console.log(imgKey)
                     }).attr("selected", "true");
 
                     d3.select("#viewer2d img")
@@ -2310,7 +2313,7 @@
                 // push the image to zoomed area
                 d3.select("#viewer2d")
                     .select("img")
-                    .attr("src", makeUrl(selectedData[imageLinkKeys[0]],"img"));
+                    .attr("src", makeUrl(selectedData[imgKey],"img"));
 
                 if (currentView == "3D") loadNew3DModel();
 
