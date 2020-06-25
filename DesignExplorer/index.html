@@ -1092,7 +1092,7 @@
             keys.forEach(function (key) {
                 key = key.trim().replace(".", " ");
 
-                if(key.toUpperCase().startsWith("IMG"))
+                if(key.toUpperCase().startsWith("IMG") || key.startsWith("_")) // If the key starts with img or underscore
                 {
                     imageLinkKeys.push(key);
                 }
@@ -1126,7 +1126,7 @@
                         cleanKey = cleanKey.slice(4);
                         outputParams[cleanKey] = row[key];
 
-                    } else if (cleanKey.toUpperCase().startsWith("IMG")) {
+                    } else if (cleanKey.toUpperCase().startsWith("IMG") || cleanKey.startsWith("_")) {
 
                         imgParams[cleanKey] = row[key];
 
