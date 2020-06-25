@@ -447,6 +447,13 @@ g.cell text {
 }
 
 
+/* Sorting select dropdown */
+.sorting > select {
+    max-width: 100%;
+    padding-right: 20px;
+}
+
+
 /* Custom Scrollbars */
 div::-webkit-scrollbar {
     width: 7px;
