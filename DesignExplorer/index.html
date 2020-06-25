@@ -2012,7 +2012,7 @@
 
             if (window.location.href.toUpperCase().search("GFOLDER") > 0 || window.location.href.toUpperCase().search("ID=") > 0) {
                 // this is old user with google drive files.
-                d3.select("#welcome").style("display", "none");
+                // d3.select("#welcome").style("display", "none");
                 MP_getGoogleIDandLoad("URL");
             } else {
 
@@ -3002,6 +3002,17 @@
             })
 
             
+        }
+
+        setupUi();
+        function setupUi() {
+            // Open first solution thumbnail if its loaded
+            if (document.querySelector("#thumbnails-btm > div:nth-child(1) > img")) {
+                document.querySelector("#thumbnails-btm > div:nth-child(1) > img").__onclick()
+            // if not wait a bit
+            } else {
+                setTimeout(setupUi, 100)
+            }
         }
 
 
