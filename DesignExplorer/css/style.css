@@ -376,9 +376,10 @@ g.cell text {
 
 
 /* Popup tabs */
+/* Popup tabs */
 #welcomeContainer,
 #loadDataContainer,
-#modal-content {
+.modal-content {
     background-color: #ffffff99;
     backdrop-filter: blur(15px);
     border-radius: 10px;
@@ -386,13 +387,15 @@ g.cell text {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
+#showStillLink div {
+    backdrop-filter: blur(10px);
+}
 
 #welcome, 
 #showStillLink,
 #showSetting {
     z-index: 99999 !important;
 }
-
 
 #welcomeContainer,
 #loadDataContainer {
@@ -412,7 +415,6 @@ g.cell text {
 .modal-backdrop {
     visibility: hidden;
 }
-
 
 
 /* Fixed zoomed in area */
