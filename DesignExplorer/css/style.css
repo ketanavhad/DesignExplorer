@@ -447,7 +447,9 @@ g.cell text {
 
 #vis {
     padding-right: 5px;
+    text-align: right;
 }
+
 
 /* Viewer Area controls */
 #vis .imgSwitch select {
@@ -465,10 +467,15 @@ g.cell text {
     float: right;
 }
 
+
 /* Sorting select dropdown */
 .sorting > select {
     max-width: 100%;
     padding-right: 20px;
+}
+
+.sorting {
+    text-align: right;
 }
 
 
