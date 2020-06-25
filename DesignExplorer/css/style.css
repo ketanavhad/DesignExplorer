@@ -284,15 +284,6 @@ g.cell text {
     text-align: right;
 }
 
-#vis .imgSwitch select{
-    width: 100%;
-    margin-top: 10px;
-}
-
-#vis .imgSwitch{
-    float: right;
-    z-index: 100;
-}
 
 
 /* OMRT Edits */
@@ -446,6 +437,21 @@ g.cell text {
     min-width: 500px;
 }
 
+/* Viewer Area controls */
+#vis .imgSwitch select {
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#vis .imgSwitch {
+    float: right;
+    z-index: 100;
+}
+
+#vis > form:nth-child(1) {
+    float: right;
+}
 
 /* Sorting select dropdown */
 .sorting > select {

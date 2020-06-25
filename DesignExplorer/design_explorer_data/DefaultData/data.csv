@@ -1,4 +1,4 @@
-in:Design,in:Glazing ratio,out:Amount of surface energy loss [kWh/m2],out:EUI (SI) (kWh/m2),out:Annual Utility Cost (Euro/m2),out:Percentage of Time Comfortable,out:Percentage of Time Too Hot,out:Percentage of Time Too Cold,out:Amount of Lux average,_Exterior,_Interior
+in:Design,in:Glazing ratio,out:Amount of surface energy loss [kWh/m2],out:EUI (SI) (kWh/m2),out:Annual Utility Cost (Euro/m2),out:Percentage of Time Comfortable,out:Percentage of Time Too Hot,out:Percentage of Time Too Cold,out:Amount of Lux average,_Exterior View,_Interior View
 Variant 1,30%,0.014,1233.177632,140.026461,65.21,4.86,29.93,328.93,DesignVariant1_Glazingratio30__Perspective.png,DesignVariant1_Glazingratio30__Parallel.png
 Variant 2,30%,0.024,1732.268109,211.567105,73.97,2.95,23.08,189.36,DesignVariant2_Glazingratio30__Perspective.png,DesignVariant2_Glazingratio30__Parallel.png
 Variant 3,30%,0.013,1188.06885,133.102562,64.47,4.39,31.14,317.52,DesignVariant3_Glazingratio30__Perspective.png,DesignVariant3_Glazingratio30__Parallel.png
