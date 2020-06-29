@@ -656,7 +656,7 @@
 
 
     <!-- right side chart -->
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         // update radar chart
         var scatterChart;
 
@@ -738,7 +738,7 @@
 
         }
 
-    </script>
+    </script> -->
 
     <!-- Dynamic Divs script -->
     <script>
@@ -864,7 +864,7 @@
 
             //highlight the radar chart  //-----TODO:here needs a switch for different charts-------
             //rc.highlight(selectedImage.data());
-            highlightScatterDot();
+            // highlightScatterDot();
 
 
             // var radarHeight = d3.select("#radarChart")
@@ -989,7 +989,7 @@
 
             // unhighlight the radar chart        //-----TODO:here needs a switch for different charts-------//
             //rc.unhighlight();
-            unlighlightScatter();
+            // unlighlightScatter();
 
             //show radar chart
             $("#radarChart").collapse("show");
@@ -1727,7 +1727,7 @@
             // brushing events for parallel coordinates graph
             graph.on("brush", function (d) {
                 //rc.updateData(graph.brushed());   //-----TODO:here needs a switch for different charts-------
-                updateScatterChart();
+                // updateScatterChart();
                 updateImageGrid(d, false);
                 drawTable(d);
             });
@@ -1798,7 +1798,7 @@
                 graph.data(newData).brushReset().render().interactive().reorderable();
                 graph.updateAxes();
                 //updateRadarChart();                   //-----TODO:here needs a switch for different charts-------
-                updateScatterChart();
+                // updateScatterChart();
                 updateLayoutOnDeselect();
                 updateImageGrid(newData, false);
                 updateSlidersTickValues(newData);
@@ -1942,7 +1942,7 @@
             //updateRadarChart();                //-----TODO:here needs a switch for different charts-------
 
             //draw scatter chart
-            addScatterChart();
+            // addScatterChart();
 
             // set color change
             // set the initial coloring based on the 3rd column
@@ -2294,7 +2294,7 @@
 
                 //update radar chart
                 //rc.highlight([selectedData]);
-                highlightScatterDot(); //-----TODO:here needs a switch for different charts-------
+                // highlightScatterDot(); //-----TODO:here needs a switch for different charts-------
 
                 //updat iterationData
                 updateIterationData([selectedData]);
