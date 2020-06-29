@@ -662,89 +662,89 @@
 
 
     <!-- right side chart -->
-    <!-- <script type="text/javascript">
-        // update radar chart
-        var scatterChart;
+    <script type="text/javascript">
+        // // update radar chart
+        // var scatterChart;
 
-        // add scatter chart
-        function addScatterChart() {
-            var pcHeight = d3.select("#graph").style("height").replace("px", "");
-            var rightChartWidth = d3.select("#radarChart").style("width").replace("px", "");
-            var selectedData;
-            if (graph.brushed().length > 0) {
-                selectedData = graph.brushed();
-            } else {
-                selectedData = graph.data();
+        // // add scatter chart
+        // function addScatterChart() {
+        //     var pcHeight = d3.select("#graph").style("height").replace("px", "");
+        //     var rightChartWidth = d3.select("#radarChart").style("width").replace("px", "");
+        //     var selectedData;
+        //     if (graph.brushed().length > 0) {
+        //         selectedData = graph.brushed();
+        //     } else {
+        //         selectedData = graph.data();
 
-            }
-            var sm = new ScatterMatrix("", selectedData, '#radarChart');
-            sm.cellSize((pcHeight - 60) / 2);
-            sm.render();
+        //     }
+        //     var sm = new ScatterMatrix("", selectedData, '#radarChart');
+        //     sm.cellSize((pcHeight - 60) / 2);
+        //     sm.render();
 
-            // adjust the chart style
-            //var chartWidth = d3.select(".scatter-matrix-svg svg").style("width").replace("px", "");
-            d3.select(".scatter-matrix-svg")
-                .style("width", pcHeight - 10 + "px");
+        //     // adjust the chart style
+        //     //var chartWidth = d3.select(".scatter-matrix-svg svg").style("width").replace("px", "");
+        //     d3.select(".scatter-matrix-svg")
+        //         .style("width", pcHeight - 10 + "px");
 
-            d3.select(".scatter-matrix-control")
-                .style("height", pcHeight - 30 + "px");
+        //     d3.select(".scatter-matrix-control")
+        //         .style("height", pcHeight - 30 + "px");
 
-            scatterChart = sm;
+        //     scatterChart = sm;
 
-            //return sm;
+        //     //return sm;
 
-        }
+        // }
 
-        //unique id for each Circle
-        function getCircleID(d) {
-            var id;
-            var keys = d3.keys(graph.data()[0]);
+        // //unique id for each Circle
+        // function getCircleID(d) {
+        //     var id;
+        //     var keys = d3.keys(graph.data()[0]);
 
-            keys.forEach(function(key) {
-                id = "scatter_" + cleanString(d[key].toString());
-            });
+        //     keys.forEach(function(key) {
+        //         id = "scatter_" + cleanString(d[key].toString());
+        //     });
 
-            return id;
-        }
+        //     return id;
+        // }
 
-        function updateScatterChart() {
-            var data = graph.brushed().length > 0 ? graph.brushed() : graph.data();
+        // function updateScatterChart() {
+        //     var data = graph.brushed().length > 0 ? graph.brushed() : graph.data();
 
-            d3.selectAll(".cell circle")
-                .classed("faded", false)
-                .attr("visibility", "hidden");
+        //     d3.selectAll(".cell circle")
+        //         .classed("faded", false)
+        //         .attr("visibility", "hidden");
 
-            data.forEach(function (d) {
-                d3.selectAll("#" + getCircleID(d)).attr("visibility", "shown");
-            });
+        //     data.forEach(function (d) {
+        //         d3.selectAll("#" + getCircleID(d)).attr("visibility", "shown");
+        //     });
 
-        }
+        // }
 
-        function highlightScatterDot() {
-            var data = graph.highlighted();
-            if (data.length > 0) {
+        // function highlightScatterDot() {
+        //     var data = graph.highlighted();
+        //     if (data.length > 0) {
 
-                d3.selectAll(".cell circle")
-                    .classed("faded", true);
+        //         d3.selectAll(".cell circle")
+        //             .classed("faded", true);
 
-                unlighlightScatter();
+        //         unlighlightScatter();
 
-                data.forEach(function (d) {
-                    d3.selectAll("#" + getCircleID(d))
-                        .classed("highlighted", true);
-                });
+        //         data.forEach(function (d) {
+        //             d3.selectAll("#" + getCircleID(d))
+        //                 .classed("highlighted", true);
+        //         });
 
-            }
+        //     }
 
-        }
+        // }
 
-        function unlighlightScatter() {
-            d3.selectAll(".cell circle")
-                .classed("highlighted", false);
+        // function unlighlightScatter() {
+        //     d3.selectAll(".cell circle")
+        //         .classed("highlighted", false);
 
-        }
+        // }
 
-    </script> -->
+    </script>
 
     <!-- Dynamic Divs script -->
     <script>
