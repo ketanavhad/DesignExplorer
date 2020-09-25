@@ -113,6 +113,10 @@
     <!-- for clean parameters before new data comes in -->
 
 
+    <!-- wheelzoom for image zooming-->
+    <script type="text/javascript" src="./wheelzoom/wheelzoom.js"></script>
+
+
 
     <!-- Google Client Scripts -->
     <!--<script src="./js/GoogleClient.js" type="text/javascript" language="javascript"></script>-->
@@ -144,6 +148,7 @@
         dimTicks:{},
         dimMark:{}
     }
+
 
     function readyToLoad(csvFilePathLink) {
         if (csvFilePathLink.length > 0) {
@@ -857,6 +862,10 @@
 
             addImgSwitch(selectedImage.datum());
             updateIterationData(selectedImage.data());
+
+
+            // Enable zoom on viewer2d image
+            wheelzoom(document.getElementById('viewer2d').querySelectorAll('img'));
 
 
             // load 3d geometry if the view is set to 3D
