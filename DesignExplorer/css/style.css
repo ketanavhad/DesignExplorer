@@ -360,6 +360,13 @@ g.cell text {
 }
 
 
+/* Rotate the pc labels */
+.label {
+    text-anchor: start;
+    transform: rotate(-10deg);
+}
+
+
 /* Fix overflow */
 #page-content-wrapper {
     padding-bottom: 0;
